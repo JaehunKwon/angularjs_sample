@@ -14,3 +14,24 @@ list:
 	</li>
 </ul>
 ```
+
+```javascript
+<div class="table-responsive">
+	<table class="table table-bordered table-striped table-hover table-condensed">
+		<thead>
+			<tr>
+				<th ng-repeat="column in columns | filter: { 'checked': true} | orderBy: 'order'">
+					{{column.display}}
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="agent in agents">
+				<td ng-repeat="column in columns" ng-if="column.checked">
+					{{ getCellValue(agent, column) }}
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+```
